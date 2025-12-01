@@ -1,0 +1,220 @@
+## CONTEXTE DU PROJET
+Je développe une plateforme web d'abonnement automobile "Carflex" permettant aux clients de souscrire à des forfaits mensuels ou annuels (Packs Budget, Midrange, Luxury). L'application doit être moderne, sécurisée et responsive.
+
+## TECHNOLOGIES SOUHAITÉES
+**Frontend :** React.js avec TypeScript
+**Backend :** Node.js avec Express
+**Base de données :** PostgreSQL
+**Authentification :** JWT + bcrypt
+**Paiements :** Stripe SDK
+**Email :** SendGrid ou équivalent
+**Hébergement :** Préparation pour déploiement VPS
+
+## ARCHITECTURE EXIGÉE
+
+### STRUCTURE DU PROJET
+carflex-platform/
+├── frontend/ # Application React
+│ ├── src/
+│ │ ├── components/ # Composants réutilisables
+│ │ ├── pages/ # Pages de l'application
+│ │ ├── contexts/ # Contexts React (auth, abonnements)
+│ │ ├── services/ # Appels API
+│ │ └── types/ # Types TypeScript
+├── backend/ # API Node.js
+│ ├── controllers/ # Logique métier
+│ ├── models/ # Modèles de données
+│ ├── routes/ # Routes API
+│ ├── middleware/ # Auth, validation, etc.
+│ └── config/ # Configuration DB, Stripe
+└── database/ # Scripts SQL et migrations
+
+text
+
+Copy
+
+Download
+
+## FONCTIONNALITÉS DÉTAILLÉES À IMPLÉMENTER
+
+### 1. PAGES FRONTEND (React Components)
+- **HomePage** : Présentation attractive avec call-to-action
+- **PacksPage** : Affichage des 3 forfaits avec comparaison
+- **AboutPage** : Page "À propos" de Carflex
+- **ContactPage** : Formulaire de contact fonctionnel
+- **AuthPage** : Inscription/Connexion (email + mot de passe)
+- **DashboardPage** : Tableau de bord utilisateur
+- **AdminPanel** : Interface d'administration sécurisée
+
+### 2. SYSTÈME D'AUTHENTIFICATION
+```typescript
+// Fonctionnalités requises :
+- Inscription avec email validation
+- Connexion sécurisée JWT
+- Middleware d'authentification
+- Gestion des sessions
+- Mot de passe oublié
+3. GESTION DES ABONNEMENTS
+
+sql
+
+Copy
+
+Download
+-- Structure DB requise :
+Table "users" : id, email, password_hash, profile_info
+Table "subscriptions" : id, user_id, pack_type, status, start_date, end_date
+Table "packs" : id, name, price_monthly, price_yearly, features
+4. INTÉGRATION STRIPE
+
+javascript
+
+Copy
+
+Download
+// Configuration Stripe :
+- Setup Stripe SDK
+- Création de Customers
+- Gestion des abonnements récurrents
+- Webhooks pour les paiements
+- Génération de factures
+5. SYSTÈME DE NOTIFICATIONS
+
+typescript
+
+Copy
+
+Download
+// Emails automatiques :
+- Confirmation d'inscription
+- Confirmation d'abonnement
+- Rappel de paiement
+- Réinitialisation mot de passe
+EXIGENCES TECHNIQUES SPÉCIFIQUES
+
+SÉCURITÉ
+
+Hashage des mots de passe (bcrypt)
+Validation des inputs côté serveur
+Protection CSRF et CORS
+Sanitization des données
+Variables d'environnement sécurisées
+PERFORMANCE
+
+Code splitting React
+Images optimisées
+Cache approprié
+Requêtes DB optimisées
+RESPONSIVE DESIGN
+
+Mobile-first approach
+Test sur multiples devices
+UI/UX professionnel et moderne
+ÉTAPES DE DÉVELOPPEMENT DÉTAILLÉES
+
+PHASE 1 : SETUP & CONFIGURATION (Semaine 1)
+
+bash
+
+Copy
+
+Download
+# Initialisation du projet
+npx create-react-app frontend --template typescript
+mkdir backend && cd backend && npm init -y
+# Configuration des dépendances
+npm install express cors helmet bcryptjs jsonwebtoken
+npm install stripe @types/stripe
+# Setup database PostgreSQL
+PHASE 2 : AUTHENTIFICATION (Semaine 2)
+
+Modèles User et Auth
+Routes d'inscription/connexion
+Middleware JWT
+Composants React Auth
+Validation des formulaires
+PHASE 3 : GESTION DES PACKS (Semaine 3-4)
+
+Modèle Subscription
+API pour les packs
+Pages de sélection
+Calcul des prix dynamiques
+Interface de gestion admin
+PHASE 4 : PAIEMENTS STRIPE (Semaine 5-6)
+
+Configuration Stripe
+Création de Checkout Sessions
+Webhooks pour les événements
+Gestion des statuts d'abonnement
+Génération de factures
+PHASE 5 : ADMIN PANEL (Semaine 7)
+
+Interface admin sécurisée
+Gestion des utilisateurs
+Vue des abonnements
+Édition des packs
+PHASE 6 : FINALISATION (Semaine 8-9)
+
+Tests complets
+Optimisations performance
+Corrections de bugs
+Documentation
+COMMANDES ET SCRIPTS UTILES
+
+BACKEND (Node.js/Express)
+
+javascript
+
+Copy
+
+Download
+// package.json scripts
+"scripts": {
+  "dev": "nodemon server.js",
+  "start": "node server.js",
+  "migrate": "node database/migrate.js"
+}
+FRONTEND (React/TypeScript)
+
+json
+
+Copy
+
+Download
+{
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
+  }
+}
+VARIABLES D'ENVIRONNEMENT REQUISES
+
+env
+
+Copy
+
+Download
+# Backend
+DATABASE_URL=postgresql://user:pass@localhost:5432/carflex
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+SENDGRID_API_KEY=SG...
+
+# Frontend
+REACT_APP_STRIPE_PUBLISHABLE_KEY=pk_test_...
+REACT_APP_API_URL=http://localhost:5000/api
+POINTS D'ATTENTION CRITIQUES
+
+Sécurité des paiements : Validation stricte côté serveur
+Gestion des erreurs : Messages utilisateur appropriés
+Performance mobile : Optimisation des images et chargement
+Accessibilité : Support WCAG de base
+SEO : Meta tags et structure sémantique
+LIVRABLES ATTENDUS
+
+Application web fullstack fonctionnelle
+Code source bien structuré et commenté
+Documentation d'installation et déploiement
+Scripts de déploiement pour production

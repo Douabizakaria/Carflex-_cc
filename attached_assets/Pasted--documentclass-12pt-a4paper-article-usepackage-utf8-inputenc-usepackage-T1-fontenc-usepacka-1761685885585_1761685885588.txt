@@ -1,0 +1,328 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+% Configuration de la page
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Couleurs
+\definecolor{primary}{RGB}{0, 51, 102}
+\definecolor{accent}{RGB}{255, 102, 0}
+
+% En-tête et pied de page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small CAHIER DES CHARGES - CARFLEX}
+\fancyhead[R]{\small PHASE 1 - APPLICATION WEB}
+\fancyfoot[L]{\small \texttt{CONFIDENTIEL}}
+\fancyfoot[C]{\small Page \thepage\ sur \pageref{LastPage}}
+\fancyfoot[R]{\small SOW-CARFLEX-PH1-WEB-2025}
+
+\begin{document}
+
+% Page de titre
+\begin{titlepage}
+    \centering
+    
+    \vspace*{1cm}
+    
+    \includegraphics[width=0.3\textwidth]{iamge.jpg} % Remplacer par votre logo
+    
+    \vspace{2cm}
+    
+    {\Huge \textbf{CAHIER DES CHARGES}} \\
+    {\Large \textbf{STATEMENT OF WORK (SOW)}} \\
+    \vspace{1cm}
+    {\LARGE \textbf{PLATEFORME WEB CARFLEX}}
+    
+    \vspace{2cm}
+    
+    \begin{tabular}{|>{\bfseries}l l|}
+        \hline
+        \textcolor{primary}{Référence :} & SOW-CARFLEX-PH1-WEB-2025 \\
+        \hline
+        \textcolor{primary}{Date :} & 23 Octobre 2025 \\
+        \hline
+        \textcolor{primary}{Version :} & 1.2 \\
+        \hline
+    \end{tabular}
+    
+    \vfill
+    
+    \begin{tabular}{|>{\bfseries}l l|}
+        \hline
+        \textcolor{primary}{CLIENT :} & Carflex SAS \\
+        \hline
+        \textcolor{primary}{PRESTATAIRE :} & Finance Alloul \\
+        \hline
+        \textcolor{primary}{RÉFÉRENT CLIENT :} & [Nom, Prénom, Titre] \\
+        \hline
+        \textcolor{primary}{CHEF DE PROJET :} & [Alloul, Soufiane] \\
+        \hline
+    \end{tabular}
+    
+    \vspace{2cm}
+    
+\end{titlepage}
+
+% Table des matières
+\tableofcontents
+\newpage
+
+\section{OBJET ET OBJECTIFS DU PROJET}
+
+\subsection{Objet de la Mission}
+L'objet de la présente mission est le \textbf{développement d'une Plateforme Web d'Abonnement Automobile "Carflex" (Phase 1)}.
+
+\subsection{Objectif Principal}
+Fournir aux clients finaux une application web complète, sécurisée et performante leur permettant de souscrire et de gérer un abonnement automobile mensuel ou annuel.
+
+\subsection{Objectifs Spécifiques}
+\begin{itemize}
+    \item \textbf{Acquisition de Clients :} Présenter de manière attractive l'offre et les packs (Budget, Midrange, Luxury) via un site web moderne et "responsive"
+    \item \textbf{Abonnement Autonome :} Permettre aux utilisateurs de s'inscrire, de choisir un pack, et de souscrire un abonnement de manière 100\% autonome et sécurisée
+    \item \textbf{Gestion des Paiements :} Mettre en place un système fiable et sécurisé de paiements récurrents
+    \item \textbf{Administration :} Doter l'équipe Carflex d'un outil de base pour superviser les utilisateurs et les abonnements
+\end{itemize}
+
+\subsection{Périmètre}
+Ce SOW couvre UNIQUEMENT le développement de l'Application Web accessible via navigateur (desktop, mobile, tablette).\\
+
+\textbf{Exclusion :} Le développement d'applications mobiles natives (iOS/Android) est explicitement exclu du périmètre de la Phase 1.
+
+\section{LIVRABLES DÉTAILLÉS (SCOPE OF WORK)}
+
+Le Prestataire s'engage à livrer les modules fonctionnels suivants :
+
+\begin{table}[htbp]
+\centering
+\caption{Modules fonctionnels de la plateforme}
+\label{tab:modules}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3cm}|X|}
+\hline
+\textbf{Module} & \textbf{Description Détaillée des Fonctionnalités} \\
+\hline
+\cellcolor  \textbf{A. Front-End \& UX/UI} & 
+\begin{itemize}
+    \item Conception d'une \textbf{charte graphique et d'un design system} cohérents et professionnels
+    \item \textbf{Maquettes interactives (wireframes \& prototypes)} pour validation
+    \item Développement d'un site web \textbf{100\% responsive} (mobile-first)
+    \item \textbf{Pages à développer :} 
+    \begin{enumerate}
+        \item Page d'Accueil
+        \item Présentation des Packs/Forfaits
+        \item Page "À Propos"
+        \item Page de Contact
+        \item Page d'Inscription/Connexion
+        \item Tableau de bord utilisateur
+    \end{enumerate}
+\end{itemize} \\
+\hline
+\cellcolor  \textbf{B. Gestion des Utilisateurs} &
+\begin{itemize}
+    \item \textbf{Inscription/Connexion} sécurisée par email et mot de passe
+    \item \textbf{Gestion du profil utilisateur} : édition des informations personnelles
+    \item \textit{Optionnel :} Connexion via réseaux sociaux (Google, Facebook)
+\end{itemize} \\
+\hline
+\cellcolor  \textbf{C. Gestion des Abonnements} &
+\begin{itemize}
+    \item \textbf{Catalogue des Packs :} Affichage dynamique des 3 packs
+    \item \textbf{Sélection de pack :} Processus fluide pour choisir un pack et une périodicité
+    \item \textbf{Logique de tarification :} Calcul du prix mensuel, total annuel et économies
+\end{itemize} \\
+\hline
+\cellcolor  \textbf{D. Module de Paiement Sécurisé} &
+\begin{itemize}
+    \item \textbf{Intégration d'une passerelle de paiement} type Stripe (certifiée PCI DSS)
+    \item \textbf{Gestion des abonnements récurrents} : Prélèvement automatique
+    \item \textbf{Gestion des factures :} Génération automatique des reçus
+\end{itemize} \\
+\hline
+\cellcolor  \textbf{E. Système de Communication} &
+\begin{itemize}
+    \item \textbf{Formulaire de contact} fonctionnel
+    \item \textbf{Emails transactionnels automatisés} :
+    \begin{itemize}
+        \item Confirmation d'inscription
+        \item Confirmation de souscription
+        \item Reçu de paiement
+        \item Rappel de paiement
+    \end{itemize}
+\end{itemize} \\
+\hline
+\cellcolor  \textbf{F. Panneau d'Administration} &
+\begin{itemize}
+    \item \textbf{Tableau de bord sécurisé} réservé à l'équipe Carflex
+    \item \textbf{Gestion des utilisateurs} : Consultation, recherche, filtrage
+    \item \textbf{Gestion des abonnements} : Vue d'ensemble des statuts
+    \item \textbf{Gestion du catalogue} : Mise à jour des prix et descriptions
+\end{itemize} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{EXCLUSIONS (HORS PÉRIMÈTRE)}
+
+\subsection{Éléments Exclus de la Phase 1}
+\begin{itemize}
+    \item \textbf{Développement d'applications mobiles natives} pour iOS et Android
+    \item \textbf{Fonctionnalités avancées de Phase 2 :}
+    \begin{itemize}
+        \item Programme de fidélité et parrainage
+        \item Système de réservation de véhicules spécifiques en temps réel
+        \item Intégration avec un système de gestion de flotte
+        \item Chatbot ou système de messagerie interne
+        \item Blog intégré
+    \end{itemize}
+    \item \textbf{Coûts Opérationnels Récurrents :}
+    \begin{itemize}
+        \item Hébergement web, nom de domaine, certificat SSL
+        \item Frais de transaction de la passerelle de paiement
+        \item Coûts des services d'emails transactionnels
+        \item Maintenance et support au-delà de la période de garantie
+    \end{itemize}
+    \item \textbf{Contenu :} Rédaction de textes définitifs, shooting photo/vidéo professionnel
+\end{itemize}
+
+\section{DÉROULEMENT DU PROJET, LIVRAISON \& VALIDATION}
+
+\subsection{Méthodologie \& Phasage}
+Le projet suivra une méthodologie agile, rythmée par des livraisons et validations régulières.
+
+\begin{table}[htbp]
+\centering
+\caption{Phasage du projet}
+\label{tab:phasage}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3cm}|X|>{\raggedright\arraybackslash}p{2.5cm}|}
+\hline
+\textbf{Phase} & \textbf{Activités Principales} & \textbf{Durée} \\
+\hline
+\cellcolor{}\textbf{Phase 1} & 
+\begin{itemize}
+    \item Atelier de cadrage
+    \item Conception charte graphique
+    \item Maquettes interactives
+\end{itemize} & 3 semaines \\
+\hline
+\cellcolor\textbf{Phase 2} &
+\begin{itemize}
+    \item Développement back-end et front-end
+    \item Intégration passerelle de paiement
+    \item Environnement de staging
+\end{itemize} & 6 semaines \\
+\hline
+\cellcolor\textbf{Phase 3} &
+\begin{itemize}
+    \item Recette utilisateur (UAT)
+    \item Correction des bugs
+    \item Mise en production
+\end{itemize} & 3 semaines \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Délai Global Estimé}
+Le délai total estimé est de \textbf{12 semaines} à compter de la date de signature du contrat et du versement de l'acompte initial.
+
+\subsection{Processus de Validation}
+\begin{itemize}
+    \item \textbf{Recette (UAT) :} Le Client dispose de 10 jours ouvrés pour tester la plateforme
+    \item \textbf{Corrections :} Le Prestataire corrige les anomalies critiques et majeures
+    \item \textbf{Livraison Finale :} Déploiement en production après validation
+\end{itemize}
+
+\section{INVESTISSEMENT \& MODALITÉS DE PAIEMENT}
+
+\subsection{Investissement (Forfait Fixe)}
+Le coût forfaitaire pour les livrables de la Phase 1 est de :\\
+\textbf{[Montant Final TTC, par exemple : 20 000 € HT / 24 000 € TTC]}
+
+\subsection{Échéancier de Paiement}
+
+\begin{table}[htbp]
+\centering
+\caption{Échéancier de paiement}
+\label{tab:paiement}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{4cm}|c|c|X|}
+\hline
+\textbf{Tranche} & \textbf{\%} & \textbf{Montant} & \textbf{Déclencheur} \\
+\hline
+\cellcolor\textbf{Acompte Initial} & 30\% & [Montant] & Signature du contrat \\
+\hline
+\cellcolor\textbf{Paiement Intermédiaire} & 40\% & [Montant] & 
+\begin{itemize}
+    \item Validation des maquettes graphiques
+    \item Intégration paiement fonctionnelle
+\end{itemize} \\
+\hline
+\cellcolor\textbf{Solde Final} & 30\% & [Montant] & 
+\begin{itemize}
+    \item Mise en production (Go-Live)
+    \item Remise des accès et documentation
+\end{itemize} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Conditions de Paiement}
+Toutes les factures sont payables sous \textbf{30 jours nets} à compter de leur date d'émission.
+
+\section{SUIVI ET COMMUNICATION}
+
+\subsection{Réunions de Suivi}
+\begin{itemize}
+    \item \textbf{Réunion hebdomadaire :} Point d'avancement (1h)
+    \item \textbf{Compte-rendu :} Envoi dans les 24h suivant chaque réunion
+    \item \textbf{Outils de suivi :} Trello/Asana pour le suivi des tâches et anomalies
+\end{itemize}
+
+\subsection{Canaux de Communication}
+\begin{itemize}
+    \item \textbf{Chef de projet client :} Point de contact unique
+    \item \textbf{Email :} [adresse@contact.com]
+    \item \textbf{Téléphone :} [numéro de contact]
+    \item \textbf{Réunions d'urgence :} Sur demande pour les blocages critiques
+\end{itemize}
+
+\vspace{2cm}
+
+\section*{ACCORD ET SIGNATURES}
+
+Les soussignés conviennent et acceptent les termes et conditions énoncés dans ce Cahier des Charges.
+
+\vspace{2cm}
+
+\begin{table}[htbp]
+\centering
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.45\textwidth}|>{\raggedright\arraybackslash}p{0.45\textwidth}|}
+\hline
+\textbf{POUR LE CLIENT, CARFLEX} & \textbf{POUR LE PRESTATAIRE} \\
+& \textbf{[Alloul Finance]} \\
+\hline
+\vspace{1cm} & \vspace{1cm} \\
+\hline
+Nom et Prénom : \rule{3cm}{0.5pt} & Nom et Prénom : \rule{3cm}{0.5pt} \\
+\hline
+Titre : \rule{3cm}{0.5pt} & Titre : \rule{3cm}{0.5pt} \\
+\hline
+Signature : & Signature : \\
+\hline
+Date : \rule{2cm}{0.5pt} & Date : \rule{2cm}{0.5pt} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\end{document}
