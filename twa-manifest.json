@@ -1,0 +1,55 @@
+{
+  "packageId": "com.carflex.app",
+  "host": "carflex.replit.app",
+  "name": "Carflex",
+  "launcherName": "Carflex",
+  "display": "standalone",
+  "themeColor": "#0A0A0A",
+  "navigationColor": "#0A0A0A",
+  "backgroundColor": "#0A0A0A",
+  "startUrl": "/",
+  "iconUrl": "/icons/icon-512x512.png",
+  "maskableIconUrl": "/icons/icon-512x512-maskable.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "android.keystore",
+    "alias": "carflex-key"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [
+    {
+      "name": "Packs",
+      "short_name": "Packs",
+      "url": "/packs",
+      "icon": "/icons/icon-192x192.png"
+    },
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "url": "/dashboard",
+      "icon": "/icons/icon-192x192.png"
+    }
+  ],
+  "enableNotifications": true,
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": false
+    },
+    "playBilling": {
+      "enabled": false
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://carflex.replit.app/manifest.json"
+}
